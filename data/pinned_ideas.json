@@ -1,0 +1,29 @@
+[
+    {
+        "ID": "1",
+        "Titre de l'idée": "Projet environnemental Rue de la Paix",
+        "Description de l'idée": "Une initiative pour réduire les déchets et promouvoir la biodiversité urbaine.",
+        "Nb likes": "17",
+        "Nb dislikes": "1",
+        "Fin du sondage": "10/02/2025",
+        "Path image": "images/environment.jpg"
+    },
+    {
+        "ID": "2",
+        "Titre de l'idée": "Aménagement cyclable Avenue des Fleurs",
+        "Description de l'idée": "Proposition de nouvelles pistes cyclables pour une mobilité durable.",
+        "Nb likes": "6",
+        "Nb dislikes": "7",
+        "Fin du sondage": "15/02/2025",
+        "Path image": "images/cycling.jpg"
+    },
+    {
+        "ID": "3",
+        "Titre de l'idée": "Réhabilitation de l'École Jean Moulin",
+        "Description de l'idée": "Travaux pour moderniser l'école et améliorer son efficacité énergétique.",
+        "Nb likes": "12",
+        "Nb dislikes": "3",
+        "Fin du sondage": "20/02/2025",
+        "Path image": "images/school.jpg"
+    }
+]

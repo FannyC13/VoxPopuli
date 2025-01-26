@@ -1,0 +1,182 @@
+[
+    {
+        "Timestamp": "16/01/2025",
+        "Proposition": "Le personnel est très accueillant, mais les temps d'attente sont trop longs.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Accueil et orientation, Temps d'attente"
+    },
+    {
+        "Timestamp": "30/01/2025",
+        "Proposition": "La navigation sur le site est simple, mais certaines informations ne sont pas à jour.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Navigation sur le site de la mairie, Disponibilité des informations en ligne"
+    },
+    {
+        "Timestamp": "04/01/2025",
+        "Proposition": "Les démarches administratives en ligne sont fluides, un vrai gain de temps.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Efficacité et facilité d’utilisation des téléservices"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Les locaux sont propres, mais il manque des espaces de repos pour les visiteurs.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Propreté et aménagement des locaux"
+    },
+    {
+        "Timestamp": "07/01/2025",
+        "Proposition": "Les délais pour obtenir des documents administratifs sont raisonnables.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Délais de traitement des dossiers"
+    },
+    {
+        "Timestamp": "05/01/2025",
+        "Proposition": "Un programme communautaire pour les jeunes serait très utile.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Initiatives citoyennes et programmes communautaires"
+    },
+    {
+        "Timestamp": "06/01/2025",
+        "Proposition": "Le service de réclamation est très réactif, mais les agents ne donnent pas assez de détails sur les procédures.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Gestion des réclamations et des plaintes, Modalités de communication et suivi des demandes"
+    },
+    {
+        "Timestamp": "21/01/2025",
+        "Proposition": "La clarté des démarches administratives pourrait être améliorée.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Clarté des procédures administratives"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Une initiative écologique pour réduire les déchets serait la bienvenue.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Engagement environnemental et social"
+    },
+    {
+        "Timestamp": "23/01/2025",
+        "Proposition": "Le paiement en ligne fonctionne parfaitement.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Paiement en ligne (taxes, amendes, etc.)"
+    },
+    {
+        "Timestamp": "13/01/2025",
+        "Proposition": "Les agents municipaux sont courtois et efficaces.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Interactions avec les agents municipaux"
+    },
+    {
+        "Timestamp": "22/01/2025",
+        "Proposition": "Le site de la mairie n'est pas accessible aux malvoyants.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Accessibilité des services (inclusion, multilingue)"
+    },
+    {
+        "Timestamp": "16/01/2025",
+        "Proposition": "Un effort sur la tarification des services est nécessaire.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Tarification et transparence des coûts"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Le service client est très efficace pour résoudre les problèmes complexes.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Interactions avec le service client ou la hotline"
+    },
+    {
+        "Timestamp": "24/01/2025",
+        "Proposition": "Les démarches en ligne sont claires, mais certaines fonctions sont inaccessibles le week-end.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Efficacité et facilité d’utilisation des téléservices"
+    },
+    {
+        "Timestamp": "29/01/2025",
+        "Proposition": "Les délais pour traiter une réclamation sont beaucoup trop longs.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Gestion des réclamations et des plaintes"
+    },
+    {
+        "Timestamp": "04/01/2025",
+        "Proposition": "Les agents municipaux ont besoin d'une meilleure formation pour répondre aux questions complexes.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Interactions avec les agents municipaux"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Les initiatives citoyennes devraient inclure des activités intergénérationnelles.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Initiatives citoyennes et programmes communautaires"
+    },
+    {
+        "Timestamp": "24/01/2025",
+        "Proposition": "Un service de suivi en ligne des dossiers serait très utile.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Modalités de communication et suivi des demandes"
+    },
+    {
+        "Timestamp": "16/01/2025",
+        "Proposition": "La gestion des situations d'urgence est excellente.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Gestion des urgences et situations exceptionnelles"
+    },
+    {
+        "Timestamp": "20/01/2025",
+        "Proposition": "L'engagement social est notable, mais plus d'efforts écologiques sont nécessaires.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Engagement environnemental et social"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Les documents administratifs sont souvent incomplets lors de la livraison.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Disponibilité des documents et dossiers administratifs"
+    },
+    {
+        "Timestamp": "03/01/2025",
+        "Proposition": "Le site de la mairie est agréable, mais certains liens sont brisés.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Navigation sur le site de la mairie"
+    },
+    {
+        "Timestamp": "17/01/2025",
+        "Proposition": "Une hotline 24h/24 serait un grand plus.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Interactions avec le service client ou la hotline"
+    },
+    {
+        "Timestamp": "27/01/2025",
+        "Proposition": "Les espaces d'accueil devraient inclure des distributeurs de boissons.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Propreté et aménagement des locaux"
+    },
+    {
+        "Timestamp": "11/01/2025",
+        "Proposition": "Les taxes municipales devraient pouvoir être payées en espèces.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Moyens de paiement acceptés"
+    },
+    {
+        "Timestamp": "09/01/2025",
+        "Proposition": "La disponibilité des informations sur les démarches en ligne est excellente.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Disponibilité des informations en ligne"
+    },
+    {
+        "Timestamp": "16/01/2025",
+        "Proposition": "Une application mobile pour les démarches administratives serait pratique.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Efficacité et facilité d’utilisation des téléservices"
+    },
+    {
+        "Timestamp": "05/01/2025",
+        "Proposition": "Les tarifs pour les activités sportives municipales sont trop élevés.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Tarification et transparence des coûts"
+    },
+    {
+        "Timestamp": "29/01/2025",
+        "Proposition": "Le service après-vente administratif est performant et rapide.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Efficacité du service après-vente administratif"
+    }
+]

@@ -1,0 +1,233 @@
+[
+    {
+        "Timestamp": "16/01/2025",
+        "Proposition": "Le personnel de la mairie est très accueillant mais c'est dommage qu'on ne puisse pas faire de démarches en ligne.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Accueil et orientation",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "16/01/2025",
+        "Proposition": "Le personnel de la mairie est très accueillant mais c'est dommage qu'on ne puisse pas faire de démarches en ligne.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Disponibilité des informations en ligne",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "30/01/2025",
+        "Proposition": "La navigation sur le site est simple, mais certaines informations ne sont pas à jour.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Navigation sur le site de la mairie",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "30/01/2025",
+        "Proposition": "La navigation sur le site est simple, mais certaines informations ne sont pas à jour.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Disponibilité des informations en ligne",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "04/01/2025",
+        "Proposition": "Les démarches administratives en ligne sont fluides, un vrai gain de temps.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Efficacité et facilité d’utilisation des téléservices",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Les locaux sont propres.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Propreté et aménagement des locaux",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "07/01/2025",
+        "Proposition": "Les délais pour obtenir des documents administratifs sont raisonnables.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Délais de traitement des dossiers",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "05/01/2025",
+        "Proposition": "Un programme communautaire pour les jeunes serait très utile.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Initiatives citoyennes et programmes communautaires",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "06/01/2025",
+        "Proposition": "Le service de réclamation est très réactif, mais les agents ne donnent pas assez de détails sur les procédures.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Gestion des réclamations et des plaintes",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "06/01/2025",
+        "Proposition": "Le service de réclamation est très réactif, mais les agents ne donnent pas assez de détails sur les procédures.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Modalités de communication et suivi des demandes",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "21/01/2025",
+        "Proposition": "La clarté des démarches administratives pourrait être améliorée.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Clarté des procédures administratives",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Une initiative écologique pour réduire les déchets serait la bienvenue.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Engagement environnemental et social",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "23/01/2025",
+        "Proposition": "Le paiement en ligne fonctionne parfaitement.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Paiement en ligne (taxes, amendes, etc.)",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "13/01/2025",
+        "Proposition": "Les agents municipaux sont courtois et efficaces.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Interactions avec les agents municipaux",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "22/01/2025",
+        "Proposition": "Le site de la mairie n'est pas accessible aux malvoyants.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Accessibilité des services (inclusion, multilingue)",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "16/01/2025",
+        "Proposition": "Un effort sur la tarification des services est nécessaire.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Tarification et transparence des coûts",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Le service client est très efficace pour résoudre les problèmes complexes.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Interactions avec le service client ou la hotline",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "24/01/2025",
+        "Proposition": "Certaines fonctions sur le site sont inaccessibles le week-end.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Disponibilité des informations en ligne",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "29/01/2025",
+        "Proposition": "Les délais pour traiter une réclamation sont beaucoup trop longs.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Gestion des réclamations et des plaintes",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "04/01/2025",
+        "Proposition": "Les agents municipaux ont besoin d'une meilleure formation pour répondre aux questions complexes.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Interactions avec les agents municipaux",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Les initiatives citoyennes devraient inclure des activités intergénérationnelles.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Initiatives citoyennes et programmes communautaires",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "24/01/2025",
+        "Proposition": "Un service de suivi en ligne des dossiers serait très utile.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Modalités de communication et suivi des demandes",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "16/01/2025",
+        "Proposition": "La gestion des situations d'urgence est excellente.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Gestion des urgences et situations exceptionnelles",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "20/01/2025",
+        "Proposition": "L'engagement social est notable, mais plus d'efforts écologiques sont nécessaires.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Engagement environnemental et social",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "15/01/2025",
+        "Proposition": "Les documents administratifs sont souvent incomplets lors de la livraison.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Disponibilité des documents et dossiers administratifs",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "03/02/2025",
+        "Proposition": "Le site de la mairie est agréable, mais certains liens sont brisés.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Navigation sur le site de la mairie",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "17/01/2025",
+        "Proposition": "Une hotline 24h/24 serait un grand plus.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Interactions avec le service client ou la hotline",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "27/01/2025",
+        "Proposition": "Les espaces d'accueil devraient inclure des distributeurs de boissons.",
+        "Catégorie": "Expérience en mairie",
+        "Sous catégorie": "Propreté et aménagement des locaux",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "11/01/2025",
+        "Proposition": "Les taxes municipales devraient pouvoir être payées en espèces.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Moyens de paiement acceptés",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "09/01/2025",
+        "Proposition": "La disponibilité des informations sur les démarches en ligne est excellente.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Disponibilité des informations en ligne",
+        "Sentiment": "Positif"
+    },
+    {
+        "Timestamp": "16/01/2025",
+        "Proposition": "Une application mobile pour les démarches administratives serait pratique.",
+        "Catégorie": "Expérience web",
+        "Sous catégorie": "Efficacité et facilité d’utilisation des téléservices",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "05/01/2025",
+        "Proposition": "Les tarifs pour les activités sportives municipales sont trop élevés.",
+        "Catégorie": "Offre/Services municipaux",
+        "Sous catégorie": "Tarification et transparence des coûts",
+        "Sentiment": "Négatif"
+    },
+    {
+        "Timestamp": "29/01/2025",
+        "Proposition": "Le service après-vente administratif est performant et rapide.",
+        "Catégorie": "Suivi/Assistance",
+        "Sous catégorie": "Efficacité du service après-vente administratif",
+        "Sentiment": "Positif"
+    }
+]
