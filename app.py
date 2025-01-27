@@ -543,30 +543,42 @@ if user_input:
         'frequency_penalty': freq_penalty,
         'max_length': max_length
     }
+    # Initialize session state for messages
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    
+    # Function to display the chat messages
+    def display_messages():
+        for message in st.session_state.messages:
+            if message["role"] == "user":
+                st.markdown(f"**User:** {message['content']}")
+            else:
+                st.markdown(f"**Assistant:** {message['content']}")
+    
+    # Main chat layout
+    st.title("Chat Interface")
+    
+    # Display existing messages
+    display_messages()
+    
+    # Placeholder for input at the bottom
+    input_container = st.empty()
+    
     # Chat input handling
-    if user_input := st.chat_input(placeholder="Enter your message"):
+    user_input = input_container.chat_input(placeholder="Qu'est-ce que la participation citoyenne ?")
+    
+    if user_input:
         # Record user message
         st.session_state.messages.append({"role": "user", "content": user_input})
-        st.write(f"**User:** {user_input}")
+    
+        # Display user message
+        input_container.empty()  # Clear the old input area
+        display_messages()  # Refresh the display with new message
     
         with st.spinner("Thinking . . . "):
-            # Get the embedding for the user prompt
-            query_vector = get_embedding(user_input)
-            
-            # Query the Pinecone index
-            results = query_pinecone_index(pinecone_index, query_vector)
-            
-            # Compile summaries from queried results
-            all_summaries = "\n".join([
-                f"File: {item.metadata['file_path']} - Summary: {item.metadata['summary']} - Score: {item['score']}"
-                for item in results if item.metadata
-            ]) if results else "No relevant information found."
-            
-            # Refine the response based on available summaries
-            refined_response = refine_response(all_summaries, user_input)
-            
-            # Display the assistant's response
-            st.write(f"**Assistant:** {refined_response}")
+            # Simulate processing (replace with actual model call)
+            refined_response = f"Response to: {user_input}"
     
-        # Append assistant's response to chat history
-        st.session_state.messages.append({"role": "assistant", "content": refined_response})
+            # Append and show the assistant message
+            st.session_state.messages.append({"role": "assistant", "content": refined_response})
+            display_messages()  # Refresh again to include the assistant response
