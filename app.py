@@ -19,86 +19,6 @@ st.markdown(
     body {
         background-color: white;
     }
-    .navbar {
-        background-color: #FFFFFF;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 2px solid #F0F2F6;
-        color: #31333F;
-        font-weight: bold;
-        font-size: 18px;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-    }
-    .navbar a {
-        text-decoration: none;
-        color: #31333F;
-        margin: 0 15px;
-    }
-    .navbar a:hover {
-        color: #FF4B4B;
-    }
-    .header {
-        font-size: 28px;
-        font-weight: bold;
-        color: #FF4B4B;
-        margin-bottom: 20px;
-    }
-    .card {
-        background-color: #F9F9F9;
-        padding: 20px;
-        border-radius: 10px;
-        margin: 50px 0;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-    }
-    .card-title {
-        font-size: 20px;
-        font-weight: bold;
-        color: #333;
-    }
-    .card-text {
-        font-size: 16px;
-        color: #666;
-    }
-    .comment {
-        background-color: #f0f2f5;
-        padding: 10px;
-        border-radius: 15px;
-        margin-bottom: 10px;
-        max-width: 80%;
-    }
-    .comment-section {
-        max-height: 150px;
-        overflow-y: auto;
-        padding-right: 10px;
-    }
-    .comment-box {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .comment-box input[type='text'] {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .comment-box button {
-        background-color: #FF4B4B;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 8px 12px;
-        cursor: pointer;
-    }
-    .comment-box button:hover {
-        background-color: #e43e3e;
-    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -176,39 +96,75 @@ def save_proposals():
     with open(proposals_file, "w", encoding="utf-8") as f:
         json.dump(st.session_state["proposals"], f, indent=4, ensure_ascii=False)
 
-
 def display_propositions():
-    st.markdown("<div class='header'>📌 Propositions</div>", unsafe_allow_html=True)
     for proposal in st.session_state["proposals"]:
         comments = [c["Comment"] for c in st.session_state["comments"] if c["Id_idea"] == proposal["ID"]]
         with st.container():
-            st.image(proposal["Path image"], width=100)
-            st.subheader(proposal["Titre de l'idée"])
-            st.write(proposal["Description de l'idée"])
-            st.write(f"**Likes**: {proposal['Nb likes']} | **Dislikes**: {proposal['Nb dislikes']}")
-            st.write(f"**Fin du sondage**: {proposal['Fin du sondage']}")
+            # Colonnes pour l'image, contenu et boutons
+            col_image, col_content, col_buttons = st.columns([1, 4, 1.5], gap="small")
+            
+            # Colonne pour l'image
+            with col_image:
+                st.image(proposal["Path image"], width=120)
 
-            # Like/Dislike Buttons
-            col1, col2 = st.columns(2)
-            if col1.button("👍 Like", key=f"like_{proposal['ID']}"):
-                proposal["Nb likes"] = str(int(proposal["Nb likes"]) + 1)
-                save_proposals()
-            if col2.button("👎 Dislike", key=f"dislike_{proposal['ID']}"):
-                proposal["Nb dislikes"] = str(int(proposal["Nb dislikes"]) + 1)
-                save_proposals()
+            # Colonne pour le contenu
+            with col_content:
+                st.markdown(
+                    f"""<h4 style='margin: 0; padding: 0;'>{proposal["Titre de l'idée"]}</h4>""",
+                    unsafe_allow_html=True,
+                )
+                st.write(f"""<p style='margin: 0;'>{proposal["Description de l'idée"]}</p>""", unsafe_allow_html=True)
+                st.write(f"**Fin du sondage**: {proposal['Fin du sondage']}")
 
-            # Comments Section
-            st.markdown("### Comments")
+            # Colonne pour les boutons "Like" et "Dislike"
+            with col_buttons:
+                col_like, col_dislike = st.columns([1, 1], gap="small")
+                with col_like:
+                    if st.button(f"👍 {proposal['Nb likes']}", key=f"like_{proposal['ID']}"):
+                        proposal["Nb likes"] = str(int(proposal["Nb likes"]) + 1)
+                        st.rerun()
+                        save_proposals()
+                      
+                with col_dislike:
+                    if st.button(f"👎 {proposal['Nb dislikes']}", key=f"dislike_{proposal['ID']}"):
+                        proposal["Nb dislikes"] = str(int(proposal["Nb dislikes"]) + 1)
+                        save_proposals()
+                        st.rerun()
+
+            # Section des commentaires
+            st.markdown("<h5 style='margin-top: 30px; margin-bottom : 10px;'>💬 Commentaires</h5>", unsafe_allow_html=True)
             for comment in comments:
-                st.markdown(f"- {comment}")
+                st.markdown(f"{comment}")
+                st.markdown("<hr style='margin: 1px 0; height: 1px; border: none; background-color: #D3D3D3;'>", unsafe_allow_html=True)
 
-            # Add new comment
-            new_comment = st.text_input("Add a comment", key=f"comment_{proposal['ID']}")
-            if st.button("Submit", key=f"submit_{proposal['ID']}"):
-                if new_comment:
-                    st.session_state["comments"].append({"Id_idea": proposal["ID"], "Comment": new_comment})
-                    save_comments()
-                    st.experimental_rerun()
+            # Champ de texte et bouton "Envoyer" alignés
+            col_input, col_send = st.columns([8, 1], gap="small")
+            with col_input:
+                new_comment = st.text_input("", placeholder="Ajouter un commentaire", key=f"comment_{proposal['ID']}")
+            with col_send:
+                st.markdown(
+                        """
+                        <style>
+                            .stButton button {
+                                margin-top: 12px; 
+                                
+                            }
+                        </style>
+                        """,
+                        unsafe_allow_html=True,
+                )
+                if st.button("➤", key=f"send_{proposal['ID']}"):
+                    if new_comment.strip():
+                        st.session_state["comments"].append({"Id_idea": proposal["ID"], "Comment": new_comment})
+                        save_comments()
+                        st.rerun()
+                    else:
+                        st.error("Veuillez entrer un commentaire valide.")
+              
+        
+        st.markdown("---")  
+
+  
 
 def load_proposals(file_path):
     try:
@@ -326,6 +282,7 @@ else:
                             orientation="h",
                             marker=dict(color=sentiment_colors[sentiment], line=dict(width=0.5, color="#333")),
                             width=0.3,  # Rendre les barres plus fines
+                            hoverinfo="x+y+name"
                         )
                     )
                 # Mettre à jour la mise en page pour plus d'esthétique
