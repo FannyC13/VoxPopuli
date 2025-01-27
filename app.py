@@ -543,16 +543,30 @@ if user_input:
         'frequency_penalty': freq_penalty,
         'max_length': max_length
     }
-
-    with st.spinner("Thinking . . . "):
-        query_vector = get_embedding(user_input)
-        results = query_pinecone_index(pinecone_index, query_vector)
-        all_summaries = "\n".join([
-            f"File: {item.metadata['file_path']} - Summary: {item.metadata['summary']} - Score: {item['score']}"
-            for item in results if item.metadata
-        ]) if results else "No relevant information found."
-        refined_response = refine_response(all_summaries, user_input)
-
+    # Chat input handling
+    if user_input := st.chat_input(placeholder="Enter your message"):
+        # Record user message
+        st.session_state.messages.append({"role": "user", "content": user_input})
+        st.write(f"**User:** {user_input}")
+    
+        with st.spinner("Thinking . . . "):
+            # Get the embedding for the user prompt
+            query_vector = get_embedding(user_input)
+            
+            # Query the Pinecone index
+            results = query_pinecone_index(pinecone_index, query_vector)
+            
+            # Compile summaries from queried results
+            all_summaries = "\n".join([
+                f"File: {item.metadata['file_path']} - Summary: {item.metadata['summary']} - Score: {item['score']}"
+                for item in results if item.metadata
+            ]) if results else "No relevant information found."
+            
+            # Refine the response based on available summaries
+            refined_response = refine_response(all_summaries, user_input)
+            
+            # Display the assistant's response
+            st.write(f"**Assistant:** {refined_response}")
+    
+        # Append assistant's response to chat history
         st.session_state.messages.append({"role": "assistant", "content": refined_response})
-    with st.chat_message("assistant"):
-        st.write(refined_response)
