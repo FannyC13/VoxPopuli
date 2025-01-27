@@ -554,5 +554,5 @@ if user_input:
         refined_response = refine_response(all_summaries, user_input)
 
         st.session_state.messages.append({"role": "assistant", "content": refined_response})
-        with st.chat_message("assistant"):
-            st.write(refined_response)
+    with st.chat_message("assistant"):
+        st.write(refined_response)
