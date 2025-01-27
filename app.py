@@ -502,83 +502,83 @@ else:
             'github_branch': os.getenv('GITHUB_BRANCH', 'documents')
         }
 
-        # Initialize Pinecone
+         # Initialize Pinecone
         pinecone_index = initialize_pinecone(env_variables['pinecone_key'], env_variables['pinecone_index'])
 
-# Verify if Pinecone index is initialized
-# st.info notifications and process initialization if needed
+        # Check if Pinecone index is empty and process if necessary
+        # if is_pinecone_index_empty(pinecone_index):
+        #     st.info("Waking up instance and loading documents...")
 
-# Clear UI
-st.empty()
+        #     with st.spinner("Retrieving and processing documents..."):
+        #         repo_docs = retrieve_github_documents(
+        #             env_variables['github_token'],
+        #             env_variables['github_repo'],
+        #             env_variables['github_branch']
+        #         )
+        #         st.write("Documents retrieved.")
 
-# Sidebar Configuration
-with st.sidebar:
-    with st.expander("Parameters"):
-        selected_model = st.selectbox('Model', ['gpt-4o', 'o1-mini', 'gpt-3.5-turbo'], key='selected_model')
-        temperature = st.slider('Creativity -/+:', min_value=0.01, max_value=1.0, value=0.8, step=0.01)
-        top_p = st.slider('Words randomness -/+:', min_value=0.01, max_value=1.0, value=0.95, step=0.01)
-        freq_penalty = st.slider('Frequency Penalty -/+:', min_value=-1.99, max_value=1.99, value=0.0, step=0.01)
-        max_length = st.slider('Max Length', min_value=256, max_value=8192, value=4224, step=2)
+        #     with st.spinner("Chunking, embedding, vectorizing, and adding metadata..."):
+        #         process_and_store_documents(repo_docs, pinecone_index)
+        #         st.write("Documents processed and stored.")
+        # else:
+        #     st.info("Documents are already processed and stored in vectorial database.")
 
-    st.button('Clear Chat History', on_click=lambda: st.session_state.update({'messages': [{"role": "assistant", "content": "Posez vos questions relatives à la participation citoyenne et aux sciences politiques !"}]}))
+        # Clear UI before displaying chat
+        st.empty()
 
-if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "Posez vos questions relatives à la participation citoyenne et aux sciences politiques !"}]
+        # Sidebar Configuration
+        with st.sidebar:
+            with st.expander("Parameters"):
+                selected_model = st.selectbox('Model', ['gpt-4o', 'o1-mini', 'gpt-3.5-turbo'], key='selected_model')
+                temperature = st.slider('Creativity -/+:', min_value=0.01, max_value=1.0, value=0.8, step=0.01)
+                top_p = st.slider('Words randomness -/+:', min_value=0.01, max_value=1.0, value=0.95, step=0.01)
+                freq_penalty = st.slider('Frequency Penalty -/+:', min_value=-1.99, max_value=1.99, value=0.0, step=0.01)
+                max_length = st.slider('Max Length', min_value=256, max_value=8192, value=4224, step=2)
 
-# Use a container for chat messages
-with st.container():
-    for message in st.session_state['messages']:
-        with st.chat_message(message["role"]):
-            st.write(message.get("content", ""))
+            st.button('Clear Chat History', on_click=lambda: st.session_state.update({'messages': [{"role": "assistant", "content": "Posez vos questions relatives à la participation citoyenne et aux sciences politiques !"}]}))
 
-# Chat input handling stays out of the container
-user_input = st.chat_input(placeholder="Qu'est-ce que la participation citoyenne ?")
-if user_input:
-    st.session_state.messages.append({"role": "user", "content": user_input})
+        # Maintain chat history
+        if "messages" not in st.session_state:
+            st.session_state["messages"] = [{"role": "assistant", "content": "Posez vos questions relatives à la participation citoyenne et aux sciences politiques !"}]
 
-    model_params = {
-        'selected_model': selected_model,
-        'temperature': temperature,
-        'top_p': top_p,
-        'frequency_penalty': freq_penalty,
-        'max_length': max_length
-    }
-    # Initialize session state for messages
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-    
-    # Function to display the chat messages
-    def display_messages():
-        for message in st.session_state.messages:
-            if message["role"] == "user":
-                st.markdown(f"**User:** {message['content']}")
-            else:
-                st.markdown(f"**Assistant:** {message['content']}")
-    
-    # Main chat layout
-    st.title("Chat Interface")
-    
-    # Display existing messages
-    display_messages()
-    
-    # Placeholder for input at the bottom
-    input_container = st.empty()
-    
-    # Chat input handling
-    user_input = input_container.chat_input(placeholder="Qu'est-ce que la participation citoyenne ?")
-    
-    if user_input:
-        # Record user message
-        st.session_state.messages.append({"role": "user", "content": user_input})
-    
-        # Display user message
-        input_container.empty()  # Clear the old input area
-        display_messages()  # Refresh the display with new message
-    
-        with st.spinner("Thinking . . . "):
-            # Simulate processing (replace with actual model call)
-            refined_response = f"Response to: {user_input}"
-    
-            # Append and show the assistant message
+        # Display the chat history
+        for message in st.session_state['messages']:
+            with st.chat_message(message["role"]):
+                st.write(message.get("content", ""))  # Use get to avoid KeyError
+
+        # Define model parameters
+        model_params = {
+            'selected_model': selected_model,
+            'temperature': temperature,
+            'top_p': top_p,
+            'frequency_penalty': freq_penalty,
+            'max_length': max_length
+        }
+
+        # Chat input handling
+        if user_input := st.chat_input(placeholder="Qu'est-ce que la participation citoyenne ?"):
+            # Record user message
+            st.session_state.messages.append({"role": "user", "content": user_input})
+            st.write(f"**User:** {user_input}")
+
+            with st.spinner("Thinking . . . "):
+                # Get the embedding for the user prompt
+                query_vector = get_embedding(user_input)
+                
+                # Query the Pinecone index
+                results = query_pinecone_index(pinecone_index, query_vector)
+                
+                # Compile summaries from queried results
+                all_summaries = "\n".join([
+                    f"File: {item.metadata['file_path']} - Summary: {item.metadata['summary']} - Score: {item['score']}"
+                    for item in results if item.metadata
+                ]) if results else "No relevant information found."
+                
+                # Refine the response based on available summaries
+                refined_response = refine_response(all_summaries, user_input)
+                
+                # Display the assistant's response
+                st.write(f"**Assistant:** {refined_response}")
+
+            # Append assistant's response to chat history
             st.session_state.messages.append({"role": "assistant", "content": refined_response})
-            display_messages()  # Refresh again to include the assistant response
