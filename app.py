@@ -282,7 +282,7 @@ else:
                             orientation="h",
                             marker=dict(color=sentiment_colors[sentiment], line=dict(width=0.5, color="#333")),
                             width=0.3,  # Rendre les barres plus fines
-                            hoverinfo="x+y+name"
+                            
                         )
                     )
                 # Mettre à jour la mise en page pour plus d'esthétique
