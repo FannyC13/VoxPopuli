@@ -508,7 +508,7 @@ else:
         # Check if Pinecone index is empty and process if necessary
         # if is_pinecone_index_empty(pinecone_index):
         #     st.info("Waking up instance and loading documents...")
-
+        
         #     with st.spinner("Retrieving and processing documents..."):
         #         repo_docs = retrieve_github_documents(
         #             env_variables['github_token'],
@@ -516,16 +516,16 @@ else:
         #             env_variables['github_branch']
         #         )
         #         st.write("Documents retrieved.")
-
+        
         #     with st.spinner("Chunking, embedding, vectorizing, and adding metadata..."):
         #         process_and_store_documents(repo_docs, pinecone_index)
         #         st.write("Documents processed and stored.")
         # else:
         #     st.info("Documents are already processed and stored in vectorial database.")
-
+        
         # Clear UI before displaying chat
         st.empty()
-
+        
         # Sidebar Configuration
         with st.sidebar:
             with st.expander("Parameters"):
@@ -534,33 +534,33 @@ else:
                 top_p = st.slider('Words randomness -/+:', min_value=0.01, max_value=1.0, value=0.95, step=0.01)
                 freq_penalty = st.slider('Frequency Penalty -/+:', min_value=-1.99, max_value=1.99, value=0.0, step=0.01)
                 max_length = st.slider('Max Length', min_value=256, max_value=8192, value=4224, step=2)
-
+        
             st.button('Clear Chat History', on_click=lambda: st.session_state.update({'messages': [{"role": "assistant", "content": "Posez vos questions relatives à la participation citoyenne et aux sciences politiques !"}]}))
-
+        
         # Maintain chat history
         if "messages" not in st.session_state:
             st.session_state["messages"] = [{"role": "assistant", "content": "Posez vos questions relatives à la participation citoyenne et aux sciences politiques !"}]
-
-        # Display the chat history
+        
+        # Display the chat history, ensure this is above the input section
         for message in st.session_state['messages']:
             with st.chat_message(message["role"]):
                 st.write(message.get("content", ""))  # Use get to avoid KeyError
-
-        # Define model parameters
-        model_params = {
-            'selected_model': selected_model,
-            'temperature': temperature,
-            'top_p': top_p,
-            'frequency_penalty': freq_penalty,
-            'max_length': max_length
-        }
-
+        
         # Chat input handling
-        if user_input := st.chat_input(placeholder="Qu'est-ce que la participation citoyenne ?"):
-            # Record user message
+        user_input = st.chat_input(placeholder="Qu'est-ce que la participation citoyenne ?")
+        if user_input:
+            # Record user message and display it right away
             st.session_state.messages.append({"role": "user", "content": user_input})
-            st.write(f"**User:** {user_input}")
-
+            
+            # Define model parameters
+            model_params = {
+                'selected_model': selected_model,
+                'temperature': temperature,
+                'top_p': top_p,
+                'frequency_penalty': freq_penalty,
+                'max_length': max_length
+            }
+        
             with st.spinner("Thinking . . . "):
                 # Get the embedding for the user prompt
                 query_vector = get_embedding(user_input)
@@ -576,9 +576,8 @@ else:
                 
                 # Refine the response based on available summaries
                 refined_response = refine_response(all_summaries, user_input)
-                
-                # Display the assistant's response
-                st.write(f"**Assistant:** {refined_response}")
-
-            # Append assistant's response to chat history
-            st.session_state.messages.append({"role": "assistant", "content": refined_response})
+        
+                # Append and display assistant's response to chat history
+                st.session_state.messages.append({"role": "assistant", "content": refined_response})
+                with st.chat_message("assistant"):
+                    st.write(refined_response)
